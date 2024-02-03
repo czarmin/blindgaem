@@ -1,0 +1,15 @@
+button:hover {
+    color: theme('textColor.slate.400');
+}
+
+button {
+    transition: 200ms;
+}
+
+td {
+    padding: 0;
+}
+
+.thing {
+    border: 2px solid;
+}

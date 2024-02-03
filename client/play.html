@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="src/global.css">
+    <title>Epic Gaem</title>
+</head>
+
+<body>
+    <main class="bg-slate-800 text-white h-[100vh]">
+        <h1 id="gameid" class="pl-3 pt-2 text-2xl"></h1>
+    </main>
+</body>
+<script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const gameid = urlParams.get('gameid');
+    document.querySelector('#gameid').innerText = gameid;
+</script>
+
+</html>

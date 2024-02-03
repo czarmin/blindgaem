@@ -1,14 +1,30 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="src/global.css">
     <title>Epic Gaem</title>
-  </head>
-  <body>
-    <div id="app">
-        <h1 class="text-2xl">Hello World!</h1>
-    </div>
-  </body>
+</head>
+
+<body>
+    <main class="bg-slate-800 h-[100vh] text-center text-white" id="app">
+        <h1 class="text-8xl m-auto text-center pt-16">Epic Bleind Gaem xd</h1>
+        <a id="goToNew">
+            <button type="button"
+                class="rounded-xl text-center p-4 w-1/4 hover:text-slate-800 hover:bg-slate-100 ease-in-out transition-all duration-500 m-auto border-[2px] text-3xl mt-24">Create
+                Gaem</button>
+        </a>
+        <h1 class="m-auto text-lg text-center py-8">Or</h1>
+        <form class="w-1/4 m-auto" id="epicform">
+            <div class="text-black">
+                <input class="w-full text-black text-center m-auto rounded-xl text-3xl p-4" autocomplete="off" required pattern="[a-zA-Z0-9]+" maxlength="5" placeholder="Game ID" type="text" id="gameid" name="gameid" />
+            </div>
+            <button type="submit" class="rounded-lg p-2 hover:text-slate-800 hover:bg-slate-100 transition-all duration-500 px-4 w-full border-[2px] text-2xl mt-3">Join</button>
+        </form>
+    </main>
+</body>
+<script src=src/mainPage.ts></script>
+
 </html>
