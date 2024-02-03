@@ -11,10 +11,35 @@
 
 <body>
     <main class="bg-slate-800 text-white h-[100vh]">
-        <div id="infobox" class="border-slate-500 border-2 rounded-md absolute top-6 left-6 p-3">
+        <div id="infobox" class="text-center border-slate-500 border-2 rounded-md absolute top-0 bottom-0 h-4/5 my-auto left-3 p-3">
             <h1 id="gameid" class="text-2xl"></h1>
             <hr class="border-slate-500 mb-3">
-            <button id="genboard" type="button">Generate Board</button>
+            <button class="mb-5 p-1" id="genboard" type="button">Generate Board</button>
+            <div class="flex flex-col mb-3">
+                <button type="button" class="room">Start</button>
+                <button type="button" class="room">Teleport</button>
+                <button type="button" class="room">Shop</button>
+                <button type="button" class="room">Flamingo</button>
+                <button type="button" class="room">Shadow Realm</button>
+                <button type="button" class="room">Good</button>
+                <button type="button" class="room">Bad</button>
+                <button type="button" class="room">Versus</button>
+                <button type="button" class="room">Combat</button>
+                <button type="button" class="room">Empty</button>
+            </div>
+            <div class="flex flex-col">
+                <button type="button" class="mb-2">Two-Way</button>
+                <button type="button">One-Way</button>
+            </div>
+        </div>
+        <div id="toolbar" class="border-slate-500 hidden border-2 rounded-md absolute top-0 bottom-0 h-4/5 my-auto right-3 p-3">
+            <h1 class="text-2xl">Scenes</h1>
+            <hr class="border-slate-500 mb-3">
+            <div class="flex flex-col">
+                <button type="button" id="screenbt" class="mb-5 p-1">Board</button>
+                <button type="button" id="screenbt" class="mb-5 p-1">Shop</button>
+                <button type="button" id="screenbt" class="mb-5 p-1">Wheels</button>
+            </div>
         </div>
         <canvas id="board" class="w-9/12 h-4/5 m-auto left-0 right-0 top-0 bottom-0 absolute border-2 border-slate-500 rounded-md" />
     </main>

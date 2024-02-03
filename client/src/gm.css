@@ -4,6 +4,12 @@ button:hover {
 
 button {
     transition: 200ms;
+    border: 1px solid; 
+}
+
+.room {
+    border: .05em solid;
+    margin-bottom: .5em;
 }
 
 td {
