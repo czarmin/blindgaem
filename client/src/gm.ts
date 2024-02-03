@@ -1,6 +1,5 @@
 
 setGameID();
-GenerateScaffold();
 RenderBoard(CreateBoard());
 
 
@@ -14,42 +13,45 @@ function setGameID() {
 
 function CreateBoard(): GameBoard {
     let board: GameBoard = {places:[], connections:[]};
-    for(let i = 0; i < 7; i++) {
+    for(let y = 0; y < 7; y++) {
         board.places.push([]);
-        for(let j = 0; j < 7; j++) {
-            board.places[i].push({name: i.toString() + " " + j.toString(), color: "#ff0000"});
+        for(let x = 0; x < 7; x++) {
+            board.places[y].push({name: x.toString() + " " + y.toString(), color: "#ff0000"});
         }
     }
     return board;
 }
 
-function GenerateScaffold() {
-    const boardEl = document.querySelector('#board') as HTMLDivElement;
-    if(!boardEl) return;
-    for(let y = 0; y < 7; y++) {
-        const row = document.createElement('tr')
-        row.className = y.toString();
-        for(let x = 0; x < 7; x++) {
-            const col = document.createElement('td');
-            col.className = `p${x}_${y}`
-            row.append(col);
-        }
-        boardEl.append(row);
-    }
-}
-
 function RenderBoard(board: GameBoard) {
-    for(let x = 0; x < 7; x++) {
-        if(!board.places[x]) continue;
-        for(let y = 0; y < 7; y++) {
-            if(!board.places[x][y]) continue;
+    const canvasEl = document.querySelector('#board') as HTMLCanvasElement;
+    if(!canvasEl) return;
+    canvasEl.width = canvasEl.clientWidth;
+    canvasEl.height = canvasEl.clientHeight;
+    const ctx = canvasEl.getContext('2d');
+    if(!ctx) return;
+    const p = 10; // padding
 
-            const parent = document.querySelector(`.p${x}_${y}`)
-            const el = document.createElement('div')
-            el.className = "thing";
-            el.innerText = board.places[y][x].name;
-            el.style.setProperty("border-color", board.places[y][x].color);
-            parent?.append(el);
+    // Canvas Size
+    const canvasW = canvasEl.width;
+    const canvasH = canvasEl.height;
+
+    // Rect Size With Padding
+    const rectWp = (canvasW - 8*p)/7;
+    const rectHp = (canvasH - 8*p)/7;
+
+    for(let y = 0; y < 7; y++) {
+        if(!board.places[y]) continue;
+        for(let x = 0; x < 7; x++) {
+            if(!board.places[y][x]) continue;
+            const X = p*(x+1)+rectWp*x;
+            const Y = p*(y+1)+rectHp*y;
+            ctx.strokeStyle = board.places[y][x].color;
+            ctx.strokeRect(X, Y, rectWp, rectHp);
+            ctx.font = "2rem Arial";
+            const tSize = ctx.measureText(board.places[y][x].name);
+            const tW = tSize.actualBoundingBoxRight - tSize.actualBoundingBoxLeft;
+            const tH = tSize.actualBoundingBoxAscent - tSize.actualBoundingBoxDescent;
+            ctx.fillText(board.places[y][x].name, X+rectWp/2-tW/2, Y+rectHp/2+tH/2);
         }
     }
 }
