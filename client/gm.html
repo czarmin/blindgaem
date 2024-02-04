@@ -28,8 +28,8 @@
                 <button type="button" class="room">Empty</button>
             </div>
             <div class="flex flex-col">
-                <button type="button" class="mb-2">Two-Way</button>
-                <button type="button">One-Way</button>
+                <button type="button" class="arrowBt mb-2">Two-Way</button>
+                <button type="button" class="arrowBt">One-Way</button>
             </div>
         </div>
         <div id="toolbar" class="border-slate-500 hidden border-2 rounded-md absolute top-0 bottom-0 h-4/5 my-auto right-3 p-3">
@@ -41,9 +41,10 @@
                 <button type="button" id="screenbt" class="mb-5 p-1">Wheels</button>
             </div>
         </div>
-        <canvas id="board" class="w-9/12 h-4/5 m-auto left-0 right-0 top-0 bottom-0 absolute border-2 border-slate-500 rounded-md" />
+        <canvas id="board" class="w-9/12 h-4/5 m-auto left-0 right-0 top-0 bottom-0 absolute border-2 border-slate-500 rounded-md"></canvas>
+        <div id="ghost" class="border-2 transition-all duration-100 border-gray-500 absolute text-gray-500 hidden items-center justify-center text-xl leading-none bg-slate-800"><h1 class="text-center">Empty</h1></div>
     </main>
 </body>
-<script src="src/gm.ts"></script>
+<script src="src/gm.ts" type="module"></script>
 
 </html>
